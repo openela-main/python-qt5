@@ -1,0 +1,20 @@
+diff -up PyQt5-5.14.2/configure.py.qt5_sipdir PyQt5-5.14.2/configure.py
+--- PyQt5-5.14.2/configure.py.qt5_sipdir	2020-04-02 09:58:06.029642000 -0500
++++ PyQt5-5.14.2/configure.py	2020-04-04 14:50:00.549639237 -0500
+@@ -25,6 +25,7 @@ import os
+ import shutil
+ import stat
+ import sys
++import sipconfig
+ 
+ 
+ # Initialise the constants.
+@@ -511,7 +512,7 @@ class TargetConfiguration:
+         self.pyqt_bin_dir = py_config.bin_dir
+         self.pyqt_module_dir = py_config.module_dir
+         self.pyqt_stubs_dir = os.path.join(py_config.module_dir, 'PyQt5')
+-        self.pyqt_sip_dir = os.path.join(py_config.data_dir, 'sip', 'PyQt5')
++        self.pyqt_sip_dir = os.path.join(sipconfig.Configuration().default_sip_dir, 'PyQt5')
+         self.pyuic_interpreter = py_config.pyuic_interpreter
+ 
+         # Remaining values.
