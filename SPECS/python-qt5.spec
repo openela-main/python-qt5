@@ -22,7 +22,7 @@
 
 Summary: PyQt5 is Python bindings for Qt5
 Name:    python-qt5
-Version: 5.15.6
+Version: 5.15.9
 Release: 1%{?dist}
 
 License: GPLv3
@@ -35,8 +35,8 @@ Source1: macros.pyqt5
 ## upstream patches
 
 ## upstreamable patches
-# support newer Qt5 releases
-Patch1: PyQt5-Timeline.patch
+# support newer Qt5 releases, but may not be needed anymore?  -- rdieter
+# Patch0: PyQt5-Timeline.patch
 
 BuildRequires: make
 BuildRequires: chrpath
@@ -164,7 +164,7 @@ Requires:  python%{python3_pkgversion}-qt5%{?_isa} = %{version}-%{release}
 %prep
 %setup -q -n PyQt5-%{version}%{?snap:.%{snap}}
 
-%patch1 -p1
+# patch0 -p1
 
 
 %build
@@ -310,6 +310,10 @@ sed -i \
 
 
 %changelog
+* Tue Apr 18 2023 Jan Grulich <jgrulich@redhat.com> - 5.15.9-1
+- 5.15.9
+  Resolves: bz#2175758
+
 * Tue May 03 2022 Jan Grulich <jgrulich@redhat.com> - 5.15.6-1
 - 5.15.6 + sync with Fedora
   Resolves: bz#2061728
